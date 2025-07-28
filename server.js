@@ -31,6 +31,7 @@ app.use(
   cors({
     origin: [
       process.env.FRONTEND_URL || "http://localhost:5173",
+      "https://shopify-landing-page-three.vercel.app", // Vercel production URL
       "http://localhost:3000", // Next.js default
       "http://127.0.0.1:5173", // Alternative localhost
       "http://127.0.0.1:3000", // Alternative localhost
