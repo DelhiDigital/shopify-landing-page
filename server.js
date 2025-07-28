@@ -33,6 +33,7 @@ app.use(cors({
     "https://shopify-landing-page-three.vercel.app",
     "http://localhost:3000",
     "http://127.0.0.1:5173",
+    "https://delhidigital.co",
     "http://127.0.0.1:3000"
   ],
   credentials: true,
