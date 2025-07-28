@@ -27,20 +27,18 @@ const PORT = process.env.PORT || 5000
 app.use(helmet())
 
 // CORS Configuration - Fixed
-app.use(
-  cors({
-    origin: [
-      process.env.FRONTEND_URL || "http://localhost:5173",
-      "https://shopify-landing-page-three.vercel.app", // Vercel production URL
-      "http://localhost:3000", // Next.js default
-      "http://127.0.0.1:5173", // Alternative localhost
-      "http://127.0.0.1:3000", // Alternative localhost
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-  }),
-)
+app.use(cors({
+  origin: [
+    process.env.FRONTEND_URL || "http://localhost:5173",
+    "https://shopify-landing-page-three.vercel.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
+}));
 
 app.use(express.json({ limit: "10mb" }))
 app.use(express.urlencoded({ extended: true, limit: "10mb" }))
