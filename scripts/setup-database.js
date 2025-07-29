@@ -4,7 +4,11 @@ require("dotenv").config()
 async function setupDatabase() {
   try {
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI)
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+
     console.log("Connected to MongoDB Atlas")
 
     // Create indexes for better performance
