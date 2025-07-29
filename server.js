@@ -8,6 +8,8 @@ const axios = require("axios")
 
 // Load environment variables FIRST
 require("dotenv").config()
+app.set("trust proxy", 1);
+
 
 // NOW load email service after env vars are loaded
 const emailService = require("./utils/emailService")
