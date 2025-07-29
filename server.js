@@ -70,7 +70,12 @@ const limiter = rateLimit({
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 15000,  // timeout faster if DNS fails
+  socketTimeoutMS: 45000,
+  })
   .then(() => console.log(" Connected to MongoDB Atlas"))
   .catch((err) => console.error(" MongoDB connection error:", err))
 

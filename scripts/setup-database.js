@@ -7,6 +7,8 @@ async function setupDatabase() {
     await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 15000, // timeout faster if DNS fails
+      socketTimeoutMS: 45000, // increase socket timeout for slow connections
     })
 
     console.log("Connected to MongoDB Atlas")
