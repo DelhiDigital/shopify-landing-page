@@ -8,7 +8,7 @@ const axios = require("axios")
 
 // Load environment variables FIRST
 require("dotenv").config()
-app.set("trust proxy", 1);
+
 
 
 // NOW load email service after env vars are loaded
@@ -23,6 +23,7 @@ console.log("SMTP_PASS:", process.env.SMTP_PASS ? "SET (length: " + process.env.
 console.log("=====================================")
 
 const app = express()
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 5000
 
 // Middleware
